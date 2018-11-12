@@ -16,7 +16,8 @@ public class War {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println(Suit.CLUB.display());
+        Card card = new Card(Suit.CLUBS, Rank.ACE);
+        card.display();
     }
     
 }

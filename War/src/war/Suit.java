@@ -6,14 +6,14 @@
 package war;
 
 /**
- *
+ * An enumeration to capture the suits of a card
  * @author wisp
  */
 public enum Suit {
-    SPADE("Spade"),
-    CLUB("Club"),
-    DIAMOND("Diamond"),
-    HEART("Heart");
+    SPADES("Spade"),
+    CLUBS("Club"),
+    DIAMONDS("Diamond"),
+    HEARTS("Heart");
     
     // Can not change at run time
     private final String suit;
@@ -23,7 +23,8 @@ public enum Suit {
         this.suit = suit;
     }
     
-    public String display() {
+    // Accessor for suit field
+    public String getSuit() {
         return suit;
     }
 }
