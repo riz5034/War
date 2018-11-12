@@ -8,6 +8,7 @@ package war;
 /**
  * An enumueration to capture the rank of a card
  * The card rank from highest to lowest is A,K,Q,J,10,9,8,7,6,5,4,3,2
+ * This will be used to compare values of ranks
  * @author wisp
  */
 public enum Rank {
@@ -27,11 +28,18 @@ public enum Rank {
     
     private final int value;
     
+    /**
+     * Default constructor of rank enumeration
+     * @param rank 
+     */
     private Rank(int rank) {
         this.value = rank;
     }
     
-    // Accessor for rank field
+    /**
+     * Access for value of rank
+     * @return the value
+     */
     public int getValue() {
         return value;
     }

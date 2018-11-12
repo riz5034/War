@@ -10,21 +10,8 @@ package war;
  * @author wisp
  */
 public enum Suit {
-    SPADES("Spade"),
-    CLUBS("Club"),
-    DIAMONDS("Diamond"),
-    HEARTS("Heart");
-    
-    // Can not change at run time
-    private final String suit;
-    
-    // Constructor to set value
-    private Suit(String suit) {
-        this.suit = suit;
-    }
-    
-    // Accessor for suit field
-    public String getSuit() {
-        return suit;
-    }
+    SPADES,
+    CLUBS,
+    DIAMONDS,
+    HEARTS;
 }

@@ -14,21 +14,35 @@ public class Card {
     private Suit suit;
     private Rank rank;
     
+    /**
+     * Default constructor for card
+     * @param suit 
+     * @param rank 
+     */
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
     }
     
-    // Accessor for suit field
+    /**
+     * Access the suit field
+     * @return the suit 
+     */
     public Suit getSuit() {
         return suit;
     }
     
-    // Accessor for rank field
+    /**
+     * Access for rank field
+     * @return the rank
+     */
     public Rank getRank() {
         return rank;
     }
     
+    /**
+     * Display the rank and suit of the card
+     */
     public void display() {
         System.out.println(String.format("%s of %s", rank, suit));
     }
