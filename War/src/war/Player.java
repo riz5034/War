@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Player {
     private String name;
-    private ArrayList<Card> deck = new ArrayList<>();
+    private ArrayList<Card> deck;
     
     /**
      * Default constructor to player that will initialize the name
@@ -31,6 +31,14 @@ public class Player {
      */
     public String getName() {
         return name;
+    }
+    
+    /**
+     * Access to set the player name
+     * @param name 
+     */
+    public void setName(String name) {
+        this.name = name;
     }
     
     /**

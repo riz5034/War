@@ -6,6 +6,7 @@
 package war;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A class that represents a physical deck of playing cards
@@ -28,6 +29,7 @@ public class Deck {
     
     /**
      * Display the cards in the deck
+     * Used to verify all 52 playing cards
      */
     public void display() {
         for(Card card : deck) {
@@ -39,7 +41,15 @@ public class Deck {
      * Shuffle the cards in the deck
      */
     public void shuffle() {
-        // add code here
+        Collections.shuffle(deck);
+    }
+    
+    /**
+     * Access to get deck
+     * @return the deck
+     */
+    public ArrayList<Card> getDeck() {
+        return deck;
     }
         
 }

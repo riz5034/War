@@ -5,6 +5,10 @@
  */
 package war;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
 /**
  * A class that describes the game of War card game
  * The objective of the game is to win all cards
@@ -15,23 +19,23 @@ package war;
  * @author wisp
  */
 public class War {
-
-    public void setupGame() {
-        
+    
+    public static String intro() {
+        System.out.println("--War Card Game--\n");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        return name;
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Test code
-        Card card = new Card(Suit.CLUBS, Rank.KING);
-        Player player = new Player("Ricky");
-        player.getDeck().add(card);
-        player.getDeck().add(new Card(Suit.HEARTS, Rank.ACE));
-        for(Card cd : player.getDeck()) {
-            cd.display();
-        }
+        String name = intro();
+        Game game = new Game(name);
+        game.start();
+
     }
     
 }
