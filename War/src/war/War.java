@@ -10,18 +10,15 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * A class that describes the game of War card game
- * The objective of the game is to win all cards
- * The deck is divided evenly among the player and the AI, giving each a down stack
- * In unison, each player reveals the top card of their deck - the player with the
- * higher value wins and takes both cards played and moves them to their stack
- * Aces are high and suits are ignored
+ * The main class that will call all other classes to play the War card game
  * @author wisp
  */
 public class War {
-    
-    public static String intro() {
-        System.out.println("--War Card Game--\n");
+    /**
+     * Displays text for user to enter their name
+     * @return the player name
+     */
+    public static String getPlayerName() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
@@ -32,7 +29,7 @@ public class War {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String name = intro();
+        String name = getPlayerName();
         Game game = new Game(name);
         game.start();
 
