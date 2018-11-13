@@ -36,24 +36,30 @@ public class Game {
      * the deck evenly between the player and the CPU
      */
     public void setup() {
-        int size = deck.getDeck().size();
+        int size = deck.getCards().size();
         deck.shuffle();
         
-        player.setDeck(new ArrayList<Card>(deck.getDeck().subList(0, size / 2)));   // Excluding size/2
-        cpu.setDeck(new ArrayList<Card>(deck.getDeck().subList(size / 2, size)));   // Excluding size
+        Deck playerDeck = new Deck();
+        playerDeck.setDeck(new ArrayList<Card>(deck.getCards().subList(0, size / 2)));       // Excluding size/2
+        
+        Deck cpuDeck = new Deck();
+        playerDeck.setDeck(new ArrayList<Card>(deck.getCards().subList(size / 2, size)));    // Excluding size
+
+        player.setDeck(playerDeck);   // Excluding size/2
+        cpu.setDeck(cpuDeck);   // Excluding size
     }
     
     /**
      * Check for game over conditions
      * If the player has all 52 cards and the CPU has 0 cards, player wins
      * If the CPU has all 52 cards and the player has 0 cards, CPU wins
-     * @return 
+     * @return true if game over, false if not game over
      */
     public boolean checkGameOver() {
         boolean gameOver = true;
-        if((player.getDeck().size() == deck.getDeck().size()) && cpu.getDeck().size() == 0) {
+        if((player.getDeck().getCards().size() == deck.getCards().size()) && cpu.getDeck().getCards().size() == 0) {
             System.out.println("You win!");
-        } else if((cpu.getDeck().size() == deck.getDeck().size()) && player.getDeck().size() == 0) {
+        } else if((cpu.getDeck().getCards().size() == deck.getCards().size()) && player.getDeck().getCards().size() == 0) {
             System.out.println("You lose!");
         } else {
             // Game over conditions not met
@@ -69,9 +75,10 @@ public class Game {
      */
     public void play() {
         boolean gameover = false;
+        ArrayList<Card> stage = new ArrayList<Card>();  // Holds the cards on the stage
         
         while(!gameover) {
-            // do stuff
+            // Each player removes the first card from their deck
             
             // Check game over condition
             gameover = checkGameOver();

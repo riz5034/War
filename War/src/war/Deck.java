@@ -13,7 +13,7 @@ import java.util.Collections;
  * @author wisp
  */
 public class Deck {
-    private ArrayList<Card> deck = new ArrayList<>();
+    private ArrayList<Card> cards = new ArrayList<>();
     
     /**
      * Default constructor that will initialize the deck to 52 playing cards
@@ -22,17 +22,16 @@ public class Deck {
     public Deck() {
         for(Suit suit : Suit.values()) {
             for(Rank rank : Rank.values()) {
-                deck.add(new Card(suit, rank));
+                cards.add(new Card(suit, rank));
             }
         }
     }
     
     /**
      * Display the cards in the deck
-     * Used to verify all 52 playing cards
      */
     public void display() {
-        for(Card card : deck) {
+        for(Card card : cards) {
             card.display();
         }
     }
@@ -41,15 +40,19 @@ public class Deck {
      * Shuffle the cards in the deck
      */
     public void shuffle() {
-        Collections.shuffle(deck);
+        Collections.shuffle(cards);
+    }
+    
+    public void setDeck(ArrayList<Card> subDeck) {
+        cards = subDeck;
     }
     
     /**
      * Access to get deck
      * @return the deck
      */
-    public ArrayList<Card> getDeck() {
-        return deck;
+    public ArrayList<Card> getCards() {
+        return cards;
     }
         
 }

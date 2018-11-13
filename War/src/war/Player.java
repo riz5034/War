@@ -5,8 +5,6 @@
  */
 package war;
 
-import java.util.ArrayList;
-
 /**
  * A class that represents a player of the game
  * It contains a list that will represent the player deck as well as methods
@@ -15,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Player {
     private String name;
-    private ArrayList<Card> deck;
+    private Deck deck;
     
     /**
      * Default constructor to player that will initialize the name
@@ -45,7 +43,7 @@ public class Player {
      * Access to get the player deck
      * @return the deck
      */
-    public ArrayList<Card> getDeck() {
+    public Deck getDeck() {
         return deck;
     }
     
@@ -53,7 +51,7 @@ public class Player {
      * Access to set the player deck
      * @param deck 
      */
-    public void setDeck(ArrayList<Card> deck) {
+    public void setDeck(Deck deck) {
         this.deck = deck;
     }
 }
