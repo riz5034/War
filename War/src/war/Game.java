@@ -82,7 +82,7 @@ public class Game {
      * @param cpuCard 
      */
     public void displayBattle(Card playerCard, Card cpuCard) {
-        System.out.println(String.format("%s [Deck: %d Card: %s]", player.getName(), player.getDeck().getCards().size(), playerCard.display()));
+        System.out.println(String.format("%s [Deck: %d Card: %s]", player.getName(), player.getDeck().getSize(), playerCard.display()));
         System.out.println("VS");
         System.out.println(String.format("CPU [Deck: %d Card: %s]", cpu.getDeck().getCards().size(), cpuCard.display()));
     }
@@ -150,14 +150,14 @@ public class Game {
                 // Remove the first 3 cards from each players deck and add
                 // to stage
                 // Then, battle
-                System.out.println("\nEach player adds 3 cards face down.\n");
                 for(int i = 0; i < cardsForWar - 1; i++) {
-                    stage.add(player.getDeck().getCards().get(i));
-                    stage.add(cpu.getDeck().getCards().get(i));
+                    stage.add(player.getDeck().getCards().get(0));
+                    stage.add(cpu.getDeck().getCards().get(0));
 
-                    player.getDeck().getCards().remove(i);
-                    cpu.getDeck().getCards().remove(i);
+                    player.getDeck().getCards().remove(0);
+                    cpu.getDeck().getCards().remove(0);
                 }
+                System.out.println("\nEach player adds 3 cards face down.\n");
                 battle();
             }
         } else if(playerCard.getRank().getValue() > cpuCard.getRank().getValue()) {
