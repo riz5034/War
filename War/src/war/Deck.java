@@ -54,5 +54,12 @@ public class Deck {
     public ArrayList<Card> getCards() {
         return cards;
     }
+    
+    /**
+     * @return the size of the array list 
+     */
+    public int getSize() {
+        return cards.size();
+    }
         
 }

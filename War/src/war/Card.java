@@ -13,6 +13,7 @@ package war;
 public class Card {
     private Suit suit;
     private Rank rank;
+    private boolean shuffle;
     
     /**
      * Default constructor for card
@@ -22,6 +23,7 @@ public class Card {
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
+        this.shuffle = false;
     }
     
     /**
@@ -41,9 +43,25 @@ public class Card {
     }
     
     /**
+     * Access to get shuffle field
+     * @return the shuffle boolean
+     */
+    public boolean getShuffle() {
+        return shuffle;
+    }
+    
+    /**
+     * Access to set shuffle field
+     * @param shuffle the shuffle boolean
+     */
+    public void setShuffle(boolean shuffle) {
+        this.shuffle = shuffle;
+    }
+    
+    /**
      * Display the rank and suit of the card
      */
-    public void display() {
-        System.out.println(String.format("%s of %s", rank, suit));
+    public String display() {
+        return String.format("%s of %s", rank, suit);
     }
 }
