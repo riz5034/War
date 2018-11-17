@@ -187,10 +187,10 @@ public class Game {
             counter++;
             
             // Comment this section out to print out all rounds at once
-            /*
+            
             System.out.println("Press \"ENTER\" to continue...");
             Scanner scanner = new Scanner(System.in);
-            scanner.nextLine(); */
+            scanner.nextLine(); 
         }
     }
     
