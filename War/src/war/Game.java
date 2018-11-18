@@ -94,19 +94,19 @@ public class Game {
      * deck and the deck is shuffled when the first card is reached
      */
     public void checkShuffle() {
-        if(player.getDeck().getCards().get(0).getShuffle()) {
+        if(player.getDeck().getCards().get(0).getShuffle() && player.getHasCardsToShuffle()) {
             player.getDeck().getCards().get(0).setShuffle(false);
             player.getDeck().shuffle();
-            System.out.println("You shuffled your deck.");
+            player.setHasCardsToShuffle(false);
+            System.out.println("You shuffled your deck.\n");
         }
         
-        if(cpu.getDeck().getCards().get(0).getShuffle()) {
+        if(cpu.getDeck().getCards().get(0).getShuffle() && cpu.getHasCardsToShuffle()) {
             cpu.getDeck().getCards().get(0).setShuffle(false);
             cpu.getDeck().shuffle();
-            System.out.println("CPU shuffled its deck.");
+            cpu.setHasCardsToShuffle(false);
+            System.out.println("CPU shuffled its deck.\n");
         }
-        System.out.println("");
-        
     }
     
     /**
@@ -122,6 +122,7 @@ public class Game {
         // Player with higher rank keeps cards in stage list
         // If tie, players play the next 3 cards facedown followed by one face up
         // Continue until there is no tie or a player runs out of cards
+        checkShuffle();
         Card playerCard = player.getDeck().getCards().get(0);
         Card cpuCard = cpu.getDeck().getCards().get(0);
         
@@ -151,6 +152,7 @@ public class Game {
                 // to stage
                 // Then, battle
                 for(int i = 0; i < cardsForWar - 1; i++) {
+                    checkShuffle();
                     stage.add(player.getDeck().getCards().get(0));
                     stage.add(cpu.getDeck().getCards().get(0));
 
@@ -161,12 +163,18 @@ public class Game {
                 battle();
             }
         } else if(playerCard.getRank().getValue() > cpuCard.getRank().getValue()) {
-            stage.get(0).setShuffle(true);
+            if(!player.getHasCardsToShuffle()) {
+                stage.get(0).setShuffle(true);
+                player.setHasCardsToShuffle(true);
+            }
             player.getDeck().getCards().addAll(stage);
             System.out.println(String.format("\nYou win %d cards this round!\n", stage.size()));
             stage.clear();
         } else if(playerCard.getRank().getValue() < cpuCard.getRank().getValue()) {
-            stage.get(0).setShuffle(true);
+            if(!cpu.getHasCardsToShuffle()) {
+                stage.get(0).setShuffle(true);
+                cpu.setHasCardsToShuffle(true);
+            }
             cpu.getDeck().getCards().addAll(stage);
             System.out.println(String.format("\nCPU wins %d cards this round!\n", stage.size()));
             stage.clear();
@@ -181,7 +189,6 @@ public class Game {
         int counter = 1;
         while(!gameover) {
             System.out.println(String.format("--- Round %d ---", counter));
-            checkShuffle();
             battle();
             gameover = checkGameOver();
             counter++;
