@@ -159,7 +159,7 @@ public class Game {
                     player.getDeck().getCards().remove(0);
                     cpu.getDeck().getCards().remove(0);
                 }
-                System.out.println("\nEach player adds 3 cards face down.\n");
+                System.out.println(String.format("\nEach player adds %d cards face down.\n", cardsForWar-1));
                 battle();
             }
         } else if(playerCard.getRank().getValue() > cpuCard.getRank().getValue()) {
@@ -168,7 +168,7 @@ public class Game {
                 player.setHasCardsToShuffle(true);
             }
             player.getDeck().getCards().addAll(stage);
-            System.out.println(String.format("\nYou win %d cards this round!\n", stage.size()));
+            System.out.println(String.format("\nYou win %d card(s) this round!\n", stage.size()));
             stage.clear();
         } else if(playerCard.getRank().getValue() < cpuCard.getRank().getValue()) {
             if(!cpu.getHasCardsToShuffle()) {
@@ -194,10 +194,10 @@ public class Game {
             counter++;
             
             // Comment this section out to print out all rounds at once
-            
+            /*
             System.out.println("Press \"ENTER\" to continue...");
             Scanner scanner = new Scanner(System.in);
-            scanner.nextLine(); 
+            scanner.nextLine(); */
         }
     }
     

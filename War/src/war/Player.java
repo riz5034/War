@@ -14,6 +14,7 @@ package war;
 public class Player {
     private String name;
     private Deck deck;
+    private boolean hasCardsToShuffle;
     
     /**
      * Default constructor to player that will initialize the name
@@ -21,6 +22,7 @@ public class Player {
      */
     public Player(String name) {
         this.name = name;
+        hasCardsToShuffle = false;
     }
     
     /**
@@ -53,5 +55,21 @@ public class Player {
      */
     public void setDeck(Deck deck) {
         this.deck = deck;
+    }
+    
+    /**
+     * Access to get has cards to shuffle 
+     * @return the has cards to shuffle boolean
+     */
+    public boolean getHasCardsToShuffle() {
+        return hasCardsToShuffle;
+    }
+    
+    /**
+     * Access to set has cards to shuffle
+     * @param hasCardsToShuffle 
+     */
+    public void setHasCardsToShuffle(boolean hasCardsToShuffle) {
+        this.hasCardsToShuffle = hasCardsToShuffle;
     }
 }
